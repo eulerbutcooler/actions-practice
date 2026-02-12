@@ -14,5 +14,5 @@ jobs:
             - run: echo "Yo pierre you wanna come out here? Ready to test the code on the runner."
             - name: List files in the repo
               run: | 
-            ls ${{ github.workspace }}
+                 ls ${{ github.workspace }}
             - run: echo "The job's status is ${{ job.status }}."
