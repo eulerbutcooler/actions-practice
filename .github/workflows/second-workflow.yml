@@ -24,4 +24,4 @@ jobs:
     runs-on: ubuntu
     steps:
       - name: Greet the user
-        run: echo "${{ github.events.input.greeting }} ${{ github.events.input.name }}!"
+        run: echo "${{ github.events.inputs.greeting }} ${{ github.events.inputs.name }}!"
