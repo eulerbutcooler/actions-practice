@@ -21,7 +21,7 @@ on:
         type: string
 jobs:
   greet:
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     steps:
       - name: Greet the user
-        run: echo "${{ github.events.inputs.greeting }} ${{ github.events.inputs.name }}!"
+        run: echo "${{ inputs.greeting }} ${{ inputs.name }}!"
