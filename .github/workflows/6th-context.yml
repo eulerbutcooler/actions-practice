@@ -1,0 +1,14 @@
+name: trying out context
+on: [push]
+
+jobs:
+  my-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Action"
+        run: echo "Hello my action $MY_ACTION"
+      - name: "Actor"
+        run: echo "Hello my actor $MY_ACTOR"
+        env:
+          MY_ACTION: ${{ github.action }}
+          MY_ACTOR: ${{ github.actor }}
