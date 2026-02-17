@@ -23,7 +23,7 @@ jobs:
         if: not(empty('Hello world'))
         run: echo "The string is not empty"
       - name: Format and echo string
-        run: echo ${{ format('Hello {0} {1} {2}', 'Mona', 'The', Octocat)}}
+        run: echo ${{ format('Hello {0} {1} {2}', 'Mona', 'The', 'Octocat')}}
       - name: Join issue labels
         if: github.event_name=='issues'
         run: 'echo "Issue labels: ${{ join(github.event.issue.labels.*name,",")}}"'
