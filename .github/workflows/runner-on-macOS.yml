@@ -1,0 +1,18 @@
+name: Runner on macOS
+on: [push]
+jobs:
+  build-on-macos:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+      - name: Create Swift file
+        run: |
+          echo 'print("Hello from Swift on macOS")' > hello.swift
+      - name: Install dependencies
+        run: |
+          brew install swift
+      - name: Run Swift script
+        run: |
+          swiftlint && swiftc hello.switf
+          ./hello
