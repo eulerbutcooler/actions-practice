@@ -1,0 +1,41 @@
+name: Trying out expressions
+on:
+  push:
+    branches:
+      - main
+jobs:
+  expression-fn:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if string contains substring
+        if: contains('Hello world', 'llo')
+        run: echo "The string contains the substring"
+      - name: Check if string starts with
+        if: startsWith('Hello World', Hel)
+        run: echo "The string starts with Hel"
+      - name: Check if string ends with
+        if: endsWith('Hello World', rld)
+        run: echo "The string ends with rld"
+      - name: Check if string is empty
+        if: empty('')
+        run: echo "The string is empty"
+      - name: Check if string is not empty
+        if: not(empty('Hello world'))
+        run: echo "The string is not empty"
+      - name: Format and echo string
+        run: echo ${{ format('Hello {0} {1} {2}', 'Mona', 'The', Octocat)}}
+      - name: Join issue labels
+        if: github.event_name=='issues'
+        run: 'echo "Issue labels: ${{ join(github.event.issue.labels.*name,",")}}"'
+      - name: Convert job context to JSON
+        run: 'echo "Job context in JSON: ${{ toJSON(github.job}}"'
+      - name: Parse JSON string
+        run: 'echo "Parsed JSON: ${{ fromJSON(''{"hello":"world"}'').hello }}"'
+      - name: Hash files
+        run: 'echo "Hash of files: ${{ hashFiles(''**/package-lock.json'', ''**/Gemfile.lock'') }}"'
+      - name: The job has succeeded
+        if: ${{ success() }}
+        run: echo "Job succeeded"
+      - name: The job has failed
+        if: ${{ failure() }}
+        run: echo "Job failed"
