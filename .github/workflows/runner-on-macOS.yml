@@ -14,5 +14,4 @@ jobs:
           brew install swift
       - name: Run Swift script
         run: |
-          swiftlint && swiftc hello.switf
-          ./hello
+          swift hlint && swift hello.swift         ./hello
