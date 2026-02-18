@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Hello world step
         id: hello
-        uses: eulerbutcooler/hello-world-js-action@
+        uses: eulerbutcooler/hello-world-js-action@main
         with:
           name: "Amaan"
       - name: Get output
