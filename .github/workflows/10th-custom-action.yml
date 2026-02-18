@@ -8,8 +8,8 @@ jobs:
     steps:
       - name: Hello world step
         id: hello
-        uses: eulerbutcooler/hello-world-js-action@main
+        uses: eulerbutcooler/hello-world-js-action@v1.2
         with:
-          name: "Amaan"
+          who-to-greet: "Amaan"
       - name: Get output
         run: echo "The output is ${{ steps.hello.outputs.greeting }}"
